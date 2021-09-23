@@ -46,7 +46,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                               return CustomModalProgressHUD(
                                   inAsyncCall: true, child: Container());
                             } else {
-                              return chatWithUsersSnapshot.data.length == 0
+                              return chatWithUsersSnapshot.data == null
                                   ? Center(
                                       child: Container(
                                           child: Text('No matches',
