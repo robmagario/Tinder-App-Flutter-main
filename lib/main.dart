@@ -6,6 +6,7 @@ import 'package:tinder_app_flutter/data/provider/user_provider.dart';
 import 'package:tinder_app_flutter/ui/screens/chat_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/login_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/matched_screen.dart';
+import 'package:tinder_app_flutter/ui/screens/matched_profile.dart';
 import 'package:tinder_app_flutter/ui/screens/register_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/splash_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/start_screen.dart';
@@ -83,6 +84,13 @@ class MyApp extends StatelessWidget {
                 myUserId: (ModalRoute.of(context).settings.arguments
                     as Map)['user_id'],
               ),
+          MatchedProfile.id: (context) => MatchedProfile(
+            otherUserProfilePhotoPath: (ModalRoute.of(context)
+                .settings
+                .arguments as Map)['other_user_profile_photo_path'],
+            otherUserId: (ModalRoute.of(context).settings.arguments
+            as Map)['other_user_id'],
+          ),
         },
       ),
     );

@@ -7,6 +7,7 @@ import 'package:tinder_app_flutter/ui/widgets/chat_top_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tinder_app_flutter/ui/widgets/message_bubble.dart';
 import 'package:tinder_app_flutter/util/constants.dart';
+import 'package:tinder_app_flutter/ui/screens/matched_profile.dart';
 
 class ChatScreen extends StatelessWidget {
   final ScrollController _scrollController = new ScrollController();
@@ -18,11 +19,14 @@ class ChatScreen extends StatelessWidget {
   final String chatId;
   final String myUserId;
   final String otherUserId;
+  final String otherUserProfilePhotoPath;
 
   ChatScreen(
       {@required this.chatId,
       @required this.myUserId,
-      @required this.otherUserId});
+      @required this.otherUserId,
+        @required this.otherUserProfilePhotoPath,
+      });
 
   void checkAndUpdateLastMessageSeen(
       Message lastMessage, String messageId, String myUserId) {
@@ -56,7 +60,24 @@ class ChatScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) return Container();
                   return ChatTopBar(user: AppUser.fromSnapshot(snapshot.data));
-                })),
+                  //return (Text("fdfdfdfdfdf"));
+                }),
+            actions: <Widget>[
+        TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, MatchedProfile.id, arguments: {
+            "other_user_profile_photo_path": otherUserProfilePhotoPath,
+            "other_user_id": otherUserId
+          });
+        },
+      child: Text('VIEW PROFILE',
+        style: Theme.of(context).textTheme.button.apply(
+          color: Colors.white,)
+      ),
+    ),
+    ],
+        ),
+
         body: Column(children: [
           Expanded(
               child: StreamBuilder<QuerySnapshot>(
