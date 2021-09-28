@@ -66,7 +66,8 @@ class ChatScreen extends StatelessWidget {
         TextButton(
         onPressed: () {
           Navigator.pushNamed(context, MatchedProfile.id, arguments: {
-            "other_user_profile_photo_path": otherUserProfilePhotoPath,
+           "other_user_profile_photo_path": otherUserProfilePhotoPath,
+           // "other_user_profile_photo_path": "aaaaaaaaaaa",
             "other_user_id": otherUserId
           });
         },

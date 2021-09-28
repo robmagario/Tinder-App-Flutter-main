@@ -24,12 +24,15 @@ class MatchedScreen extends StatelessWidget {
 
   void sendMessagePressed(BuildContext context) async {
     AppUser user = await Provider.of<UserProvider>(context, listen: false).user;
+    print ("photopath");
+    print (otherUserProfilePhotoPath);
 
     Navigator.pop(context);
     Navigator.pushNamed(context, ChatScreen.id, arguments: {
       "chat_id": compareAndCombineIds(myUserId, otherUserId),
       "user_id": user.id,
-      "other_user_id": otherUserId
+      "other_user_id": otherUserId,
+      "other_user_profile_photo_path": otherUserProfilePhotoPath,
     });
   }
 

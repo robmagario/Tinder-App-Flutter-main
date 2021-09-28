@@ -11,31 +11,15 @@ import 'package:tinder_app_flutter/util/utils.dart';
 class MatchedProfile extends StatelessWidget {
   static const String id = 'matched_profile';
 
-  final String myProfilePhotoPath;
-  final String myUserId;
   final String otherUserProfilePhotoPath;
   final String otherUserId;
 
   MatchedProfile(
-      {@required this.myProfilePhotoPath,
-        @required this.myUserId,
+      {
         @required this.otherUserProfilePhotoPath,
         @required this.otherUserId});
 
-  void sendMessagePressed(BuildContext context) async {
-    AppUser user = await Provider.of<UserProvider>(context, listen: false).user;
 
-    Navigator.pop(context);
-    Navigator.pushNamed(context, ChatScreen.id, arguments: {
-      "chat_id": compareAndCombineIds(myUserId, otherUserId),
-      "user_id": user.id,
-      "other_user_id": otherUserId
-    });
-  }
-
-  void keepSwipingPressed(BuildContext context) {
-    Navigator.pop(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +35,7 @@ class MatchedProfile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //Image.asset('images/tinder_icon.png', width: 40),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                   //Portrait(imageUrl: myProfilePhotoPath),
-                    Portrait(imageUrl: otherUserProfilePhotoPath)
-                  ],
-                ),
-              ),
+              Portrait(imageUrl: otherUserProfilePhotoPath),
             ],
           ),
         ),

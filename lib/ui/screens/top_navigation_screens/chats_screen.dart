@@ -15,11 +15,13 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   void chatWithUserPressed(ChatWithUser chatWithUser) async {
     AppUser user = await Provider.of<UserProvider>(context, listen: false).user;
+    print(chatWithUser.user.profilePhotoPath);
     Navigator.pushNamed(context, ChatScreen.id, arguments: {
       "chat_id": chatWithUser.chat.id,
       "user_id": user.id,
       "other_user_id": chatWithUser.user.id,
       "other_user_profile_photo_path": chatWithUser.user.profilePhotoPath,
+
     });
   }
 
