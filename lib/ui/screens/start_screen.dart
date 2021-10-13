@@ -25,7 +25,7 @@ class StartScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
-                      'DTQ (Down to Quarantine) matches desperate travellers. ',
+                      'Help travellers to share a stay and save money. ',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),

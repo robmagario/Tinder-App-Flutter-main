@@ -12,12 +12,20 @@ import 'package:tinder_app_flutter/ui/screens/splash_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/start_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/top_navigation_screen.dart';
 import 'package:tinder_app_flutter/util/constants.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final readTermsandConditionsProvider = StateProvider<bool>((ref) => false);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(
+    ProviderScope(child: MyApp()
+    ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   @override

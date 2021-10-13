@@ -27,15 +27,16 @@ class MatchedProfile extends StatelessWidget {
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(
-            vertical: 42.0,
-            horizontal: 18.0,
+         //   vertical: 42.0,
+         //   horizontal: 18.0,
           ),
           margin: EdgeInsets.only(bottom: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               //Image.asset('images/tinder_icon.png', width: 40),
-              Portrait(imageUrl: otherUserProfilePhotoPath),
+             // Portrait(imageUrl: otherUserProfilePhotoPath),
+              Image.network(otherUserProfilePhotoPath),
             ],
           ),
         ),
