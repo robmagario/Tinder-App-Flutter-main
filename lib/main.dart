@@ -10,11 +10,12 @@ import 'package:tinder_app_flutter/ui/screens/matched_profile.dart';
 import 'package:tinder_app_flutter/ui/screens/register_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/splash_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/start_screen.dart';
+import 'package:tinder_app_flutter/ui/screens/terms_and_conditions_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/top_navigation_screen.dart';
 import 'package:tinder_app_flutter/util/constants.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' hide ChangeNotifierProvider;
 
-final readTermsandConditionsProvider = StateProvider<bool>((ref) => false);
+final readTermsandConditionsProvider = StateProvider<bool>((ref) => true);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
               MaterialColor(kBackgroundColorInt, kThemeMaterialColor),
           scaffoldBackgroundColor: kPrimaryColor,
           hintColor: kSecondaryColor,
+          unselectedWidgetColor: Colors.white,
           textTheme: TextTheme(
             headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
             headline2: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
@@ -69,6 +71,7 @@ class MyApp extends StatelessWidget {
         initialRoute: SplashScreen.id,
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
+          TermsandConditionsScreen.id: (context) => TermsandConditionsScreen(),
           StartScreen.id: (context) => StartScreen(),
           LoginScreen.id: (context) => LoginScreen(),
           RegisterScreen.id: (context) => RegisterScreen(),
